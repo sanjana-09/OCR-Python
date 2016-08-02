@@ -30,6 +30,7 @@ test_data2_4 = get_letters(test_page2_4,test_coordinates2,max_size)
 #stack all letters from all training pages
 train_data = np.vstack((train1,train2,train3,train4))
 
+#get pca data
 axes = get_pca_axes(train_data)
 
 pca_train_data = get_pca_data(train_data,axes,train_data)
@@ -124,6 +125,14 @@ def trial3(feature_range):
 	trial1(feature_range)
 	trial2(feature_range)
 
-trial1(xrange(1,40))
-trial2(xrange(1,40))
+def print_message(trial,number_features,sp_range):
+	print 'Showing results for ' + trial + ' using ' + number_features + ' features from ' + sp_range
+
+# print_message("Trial 1", "39", "1 to 40")
+# trial1(xrange(1,40))
+
+# print_message("Trial 2", "39", "1 to 40")
+# trial2(xrange(1,40))
+
+print_message("Trial 3", "10", "1 to 11")
 trial3(xrange(1,11))
