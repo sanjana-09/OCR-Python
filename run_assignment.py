@@ -48,7 +48,9 @@ pca_test_data2_3 = get_pca_data(test_data2_3,axes,train_data)
 pca_test_data2_4 = get_pca_data(test_data2_4,axes,train_data)
 
 
-def trial1(feature_range):
+def clean_data(feature_range,number_features,sp_range):
+	print_message("clean_data",number_features,sp_range)
+
 	score_test1,classified_label_1 = classify(pca_train_data,train_labels,pca_test_data1,test_labels1, feature_range)
 	score_test2,classified_label_2 = classify(pca_train_data,train_labels,pca_test_data2,test_labels2, feature_range)
 
@@ -65,74 +67,88 @@ def trial1(feature_range):
 	print 'classifier score for test 2 after error correction'
 	print corrected_score2
 
-def trial2(feature_range):
+def noisy_data_1(feature_range,number_features,sp_range):
+	print_message("noisy data 1",number_features,sp_range)
+
 	score_test1_1,classified_label_1_1 = classify(pca_train_data,train_labels,pca_test_data1_1,test_labels1, feature_range)
-	score_test1_2,classified_label_1_2 = classify(pca_train_data,train_labels,pca_test_data1_2,test_labels1, feature_range)
-	score_test1_3,classified_label_1_3 = classify(pca_train_data,train_labels,pca_test_data1_3,test_labels1, feature_range)
-	score_test1_4,classified_label_1_4 = classify(pca_train_data,train_labels,pca_test_data1_4,test_labels1, feature_range)
-
-	score_test2_1,classified_label_2_1 = classify(pca_train_data,train_labels,pca_test_data2_1,test_labels2, feature_range)
-	score_test2_2,classified_label_2_2 = classify(pca_train_data,train_labels,pca_test_data2_2,test_labels2, feature_range)
-	score_test2_3,classified_label_2_3 = classify(pca_train_data,train_labels,pca_test_data2_3,test_labels2, feature_range)
-	score_test2_4,classified_label_2_4 = classify(pca_train_data,train_labels,pca_test_data2_4,test_labels2, feature_range)
-
-	corrected_score1_1 = calculate_improvement(classified_label_1_1,test_labels1,test_details1)
-	corrected_score1_2 = calculate_improvement(classified_label_1_2,test_labels1,test_details1)
-	corrected_score1_3 = calculate_improvement(classified_label_1_3,test_labels1,test_details1)
-	corrected_score1_4 = calculate_improvement(classified_label_1_4,test_labels1,test_details1)
-
-	corrected_score2_1 = calculate_improvement(classified_label_2_1,test_labels2,test_details2)
-	corrected_score2_2 = calculate_improvement(classified_label_2_2,test_labels2,test_details2)
-	corrected_score2_3 = calculate_improvement(classified_label_2_3,test_labels2,test_details2)
-	corrected_score2_4 = calculate_improvement(classified_label_2_4,test_labels2,test_details2)
-	
-
 	print 'classifier score for test 1.1 before error correction'
 	print score_test1_1
-	print 'classifier score for test 1.1 after error correction'
-	print corrected_score1_1
+
+	score_test1_2,classified_label_1_2 = classify(pca_train_data,train_labels,pca_test_data1_2,test_labels1, feature_range)
 	print 'classifier score for test 1.2 before error correction'
 	print score_test1_2
-	print 'classifier score for test 1.2 after error correction'
-	print corrected_score1_2
+
+	score_test1_3,classified_label_1_3 = classify(pca_train_data,train_labels,pca_test_data1_3,test_labels1, feature_range)
 	print 'classifier score for test 1.3 before error correction'
 	print score_test1_3
-	print 'classifier score for test 1.3 after error correction'
-	print corrected_score1_3
+
+	score_test1_4,classified_label_1_4 = classify(pca_train_data,train_labels,pca_test_data1_4,test_labels1, feature_range)
 	print 'classifier score for test 1.4 before error correction'
 	print score_test1_4
+
+
+	corrected_score1_1 = calculate_improvement(classified_label_1_1,test_labels1,test_details1)
+	print 'classifier score for test 1.1 after error correction'
+	print corrected_score1_1
+
+	corrected_score1_2 = calculate_improvement(classified_label_1_2,test_labels1,test_details1)
+	print 'classifier score for test 1.2 after error correction'
+	print corrected_score1_2
+
+	corrected_score1_3 = calculate_improvement(classified_label_1_3,test_labels1,test_details1)
+	print 'classifier score for test 1.3 after error correction'
+	print corrected_score1_3
+
+	corrected_score1_4 = calculate_improvement(classified_label_1_4,test_labels1,test_details1)
 	print 'classifier score for test 1.4 after error correction'
 	print corrected_score1_4
 
+def noisy_data_2(feature_range,number_features,sp_range):
+
+	print_message("noisy data 2",number_features,sp_range)
+
+	score_test2_1,classified_label_2_1 = classify(pca_train_data,train_labels,pca_test_data2_1,test_labels2, feature_range)
 	print 'classifier score for test 2.1 before error correction'
 	print score_test2_1
-	print 'classifier score for test 2.1 after error correction'
-	print corrected_score2_1
+
+	score_test2_2,classified_label_2_2 = classify(pca_train_data,train_labels,pca_test_data2_2,test_labels2, feature_range)
 	print 'classifier score for test 2.2 before error correction'
-	print score_test1_2
-	print 'classifier score for test 2.2 after error correction'
-	print corrected_score2_2
+	print score_test2_2
+
+	score_test2_3,classified_label_2_3 = classify(pca_train_data,train_labels,pca_test_data2_3,test_labels2, feature_range)
 	print 'classifier score for test 2.3 before error correction'
 	print score_test2_3
-	print 'classifier score for test 2.3 after error correction'
-	print corrected_score2_3
+
+	score_test2_4,classified_label_2_4 = classify(pca_train_data,train_labels,pca_test_data2_4,test_labels2, feature_range)
 	print 'classifier score for test 2.4 before error correction'
 	print score_test2_4
+
+	corrected_score2_1 = calculate_improvement(classified_label_2_1,test_labels2,test_details2)
+	print 'classifier score for test 2.1 after error correction'
+	print corrected_score2_1
+
+
+	corrected_score2_2 = calculate_improvement(classified_label_2_2,test_labels2,test_details2)
+	print 'classifier score for test 2.2 after error correction'
+	print corrected_score2_2
+
+
+	corrected_score2_3 = calculate_improvement(classified_label_2_3,test_labels2,test_details2)
+	print 'classifier score for test 2.3 after error correction'
+	print corrected_score2_3
+
+
+	corrected_score2_4 = calculate_improvement(classified_label_2_4,test_labels2,test_details2)
 	print 'classifier score for test 2.4 after error correction'
 	print corrected_score2_4 
 
-def trial3(feature_range):
-	trial1(feature_range)
-	trial2(feature_range)
+def trial(feature_range,number_features,sp_range):
+	# clean_data(feature_range,number_features,sp_range)
+	noisy_data_1(feature_range,number_features,sp_range)
+	noisy_data_2(feature_range,number_features,sp_range)
 
 def print_message(trial,number_features,sp_range):
 	print 'Showing results for ' + trial + ' using ' + number_features + ' features from ' + sp_range
 
-# print_message("Trial 1", "39", "1 to 40")
-# trial1(xrange(1,40))
-
-# print_message("Trial 2", "39", "1 to 40")
-# trial2(xrange(1,40))
-
-print_message("Trial 3", "10", "1 to 11")
-trial3(xrange(1,11))
+# trial (xrange(1,40),"39","1 to 40")
+trial (xrange(1,11),"10","1 to 11")

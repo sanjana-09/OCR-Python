@@ -55,7 +55,7 @@ test_labels2 = test_details2[:, 0].reshape((1, test_details2[:, 0].shape[0]))
 
 #loading in dictionaries
 dictionary = np.loadtxt('wordsEn.txt', dtype=str)
-freq_dictionary = np.loadtxt('freq.txt', dtype=str)
+freq_dictionary = np.loadtxt('dictionary.txt', dtype=str)
 
 def get_coords(index, coordinates):
 	"""
@@ -210,14 +210,16 @@ def correct_errors(words):
 					if edit_distance(dictionary_word, word) == 1:
 						maybe_words.append(dictionary_word)
 			if len(maybe_words) != 0:
-				#final_word = maybe_words[0] #just picks first,change this
-
 				final_word = pick_best_word(maybe_words)
 				new_words.append(final_word)
 			else:
 				new_words.append(word)
 		else:
 			new_words.append(word)
+
+	# for i in xrange(len(words)):
+	# 	if words[i]  != new_words[i]:
+	# 		print words[i],new_words[i]
 	return new_words
 
 
@@ -238,21 +240,18 @@ def edit_distance(word1, word2):
 
 def pick_best_word(word_list):
 	frequencies = []
-	not_in_freq_dictionary = []
+	words_with_frequencies = []
 
 	for word in word_list:
 		if word in freq_dictionary:
-			index = np.where(freq_dictionary == word)
-			row = index[0][0]
-			#frequencies.append(freq_dictionary[row][0]) #given freq in dictionary
-			frequencies.append(row) #ranks by index in freq_dictionary
-		else:
-			not_in_freq_dictionary.append(word)
+			word,frequency = freq_dictionary[np.where(freq_dictionary == word)[0][0]]
+			frequencies.append(int(frequency))
+			words_with_frequencies.append((word,frequency))
 	if not frequencies:
 		return word_list[0]
 	else:
-		index_of_best_word = min(frequencies)
-		return freq_dictionary[index_of_best_word][1]
+		index_of_best_word = frequencies.index(max(frequencies))
+		return words_with_frequencies[index_of_best_word][0]
 
 
 
