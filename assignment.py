@@ -142,7 +142,7 @@ def classify(train, train_labels, test, test_labels, features=None):
 	"""
    # Use all feature if no feature parameter has been supplied
 	if features is None:
-		features = np.arange(0, train.shape[1]) #training features in horizontal vector?
+		features = np.arange(0, train.shape[1]) 
 
 	# Select the desired features from the training and test data
 	train = train[:, features]
@@ -171,7 +171,7 @@ def get_pca_axes(data):
 
 # returns pca data, code from completed lab sheet
 def get_pca_data(data, axes, train_data):
-	pca_data = np.dot((data - np.mean(train_data)), axes)
+	pca_data = np.dot((data - np.mean(train_data)), axes) 
 	return pca_data
 
 
@@ -209,6 +209,9 @@ def correct_errors(words):
 				if len(dictionary_word) == len(word):
 					if edit_distance(dictionary_word, word) == 1:
 						maybe_words.append(dictionary_word)
+					if len(maybe_words) == 0:
+						if edit_distance(dictionary_word,word) == 2:
+							maybe_words.append(dictionary_word)
 			if len(maybe_words) != 0:
 				final_word = pick_best_word(maybe_words)
 				new_words.append(final_word)
