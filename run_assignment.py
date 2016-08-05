@@ -143,7 +143,7 @@ def noisy_data_2(feature_range,number_features,sp_range):
 	print corrected_score2_4 
 
 def trial(feature_range,number_features,sp_range):
-	# clean_data(feature_range,number_features,sp_range)
+	clean_data(feature_range,number_features,sp_range)
 	noisy_data_1(feature_range,number_features,sp_range)
 	noisy_data_2(feature_range,number_features,sp_range)
 
@@ -151,4 +151,4 @@ def print_message(trial,number_features,sp_range):
 	print 'Showing results for ' + trial + ' using ' + number_features + ' features from ' + sp_range
 
 trial (xrange(1,40),"39","1 to 40")
-# trial (xrange(1,11),"10","1 to 11")
+trial (xrange(1,11),"10","1 to 11")
