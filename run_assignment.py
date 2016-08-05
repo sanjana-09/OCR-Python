@@ -151,4 +151,4 @@ def print_message(trial,number_features,sp_range):
 	print 'Showing results for ' + trial + ' using ' + number_features + ' features from ' + sp_range
 
 trial (xrange(1,40),"39","1 to 40")
-trial (xrange(1,11),"10","1 to 11")
+# trial (xrange(1,11),"10","1 to 11")

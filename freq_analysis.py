@@ -6,22 +6,26 @@ import numpy as np
 dictionary = np.loadtxt('wordsEn.txt', dtype=str)
 freq_dictionary = np.loadtxt('dictionary.txt', dtype=str)
 
-print freq_dictionary
-word,frequency  = freq_dictionary[0]
-print word,frequency
+word = ""
+if word:
+	print "yes"
+else:
+	print "no"
+# word,frequency  = freq_dictionary[0]
+# print word,frequency
 
-words = ["calf","calm","call"]
-frequencies = []
-word_and_frequency = []
+# words = ["calf","calm","call"]
+# frequencies = []
+# word_and_frequency = []
 
-for word in words:
-	if word in freq_dictionary:
-		word,frequency = freq_dictionary[np.where(freq_dictionary == word)[0][0]]
-		word_and_frequency.append((word,int(frequency)))
+# for word in words:
+# 	if word in freq_dictionary:
+# 		word,frequency = freq_dictionary[np.where(freq_dictionary == word)[0][0]]
+# 		word_and_frequency.append((word,int(frequency)))
 
-print word_and_frequency
-print word_and_frequency.index(max(word_and_frequency))
-print word_and_frequency[word_and_frequency.index(max(word_and_frequency))][0]
+# print word_and_frequency
+# print word_and_frequency.index(max(word_and_frequency))
+# print word_and_frequency[word_and_frequency.index(max(word_and_frequency))][0]
 
 
 

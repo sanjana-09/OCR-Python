@@ -29,6 +29,8 @@ messua 21160
 nathoo 21160
 buldeo 21160
 kamya 21160
+waingunga 21160
+lungri 21160
 a	21160
 aah	1
 aaron	5
@@ -11664,6 +11666,7 @@ grow	74
 growers	3
 growing	153
 growl	1
+growls 100
 growled	4
 growling	1
 grown	100
@@ -25663,6 +25666,7 @@ taylor	11
 te	16
 tea	107
 teach	27
+teaches 27
 teacher	10
 teachers	14
 teaching	18
@@ -25939,6 +25943,7 @@ thickens	2
 thicker	5
 thickest	1
 thicket	4
+thickets 100
 thickly	8
 thickness	15
 thicknesses	1

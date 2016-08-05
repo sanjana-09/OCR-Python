@@ -54,7 +54,7 @@ test_coordinates2 = test_details2[:, 1:5].astype(int)
 test_labels2 = test_details2[:, 0].reshape((1, test_details2[:, 0].shape[0]))
 
 #loading in dictionaries
-dictionary = np.loadtxt('wordsEn.txt', dtype=str)
+# dictionary = np.loadtxt('wordsEn.txt', dtype=str)
 freq_dictionary = np.loadtxt('dictionary.txt', dtype=str)
 
 def get_coords(index, coordinates):
@@ -203,26 +203,35 @@ def correct_errors(words):
 	"""
 	new_words = []
 	for word in words:
-		if not (word.lower() in dictionary or word[0].isupper()): #if the word isn't in dictionary or is a proper noun
-			maybe_words = []
-			for dictionary_word in dictionary:
+		edit_distance_1_words = []
+		edit_distance_2_words = []
+		dictionary_word_found = False
+		if not (word.lower() in freq_dictionary): #if the word isn't in dictionary or is a proper noun
+			for dictionary_word,frequency in freq_dictionary:
 				if len(dictionary_word) == len(word):
-					if edit_distance(dictionary_word, word) == 1:
-						maybe_words.append(dictionary_word)
-					if len(maybe_words) == 0:
-						if edit_distance(dictionary_word,word) == 2:
-							maybe_words.append(dictionary_word)
-			if len(maybe_words) != 0:
-				final_word = pick_best_word(maybe_words)
-				new_words.append(final_word)
+					if edit_distance(dictionary_word, word.lower()) == 1:
+						edit_distance_1_words.append(dictionary_word)
+					else:
+						if edit_distance(dictionary_word,word.lower()) == 2:
+							edit_distance_2_words.append(dictionary_word)
+
+			if edit_distance_1_words:
+				final_word = pick_best_word(edit_distance_1_words)
+				dictionary_word_found = True
+			else:
+				if edit_distance_2_words:
+					final_word = pick_best_word(edit_distance_2_words)
+					dictionary_word_found = True
+
+			if dictionary_word_found:
+				if word[0].isupper():
+					new_words.append(final_word.capitalize())
+				else:
+					new_words.append(final_word)
 			else:
 				new_words.append(word)
 		else:
 			new_words.append(word)
-
-	# for i in xrange(len(words)):
-	# 	if words[i]  != new_words[i]:
-	# 		print words[i],new_words[i]
 	return new_words
 
 
