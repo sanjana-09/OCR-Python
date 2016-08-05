@@ -162,11 +162,21 @@ def classify(train, train_labels, test, test_labels, features=None):
 	return score, label
 
 # returns principal component axes, code from completed lab sheet
-def get_pca_axes(data):
+def get_pca_axes(data,max_size):
+
 	covx = np.cov(data, rowvar=0)
 	N = covx.shape[0]
 	w, v = scipy.linalg.eigh(covx, eigvals=(N-100, N-1))
 	v = np.fliplr(v)
+	axis = plt.subplot(2,2,1)
+	plt.imshow(np.reshape(v[:, 0], (max_size), order='F'), cmap=cm.Greys_r)
+	plt.show()
+	axis = plt.subplot(2,2,2)
+	axis.matshow(np.reshape(v[:, 1], (max_size), order='F'), cmap=cm.Greys_r)
+	axis = plt.subplot(2,2,3)
+	axis.matshow(np.reshape(v[:, 2], (max_size), order='F'), cmap=cm.Greys_r)
+	axis = plt.subplot(2,2,4)
+	axis.matshow(np.reshape(v[:, 3], (max_size), order='F'), cmap=cm.Greys_r)
 	return v
 
 # returns pca data, code from completed lab sheet
@@ -206,6 +216,7 @@ def correct_errors(words):
 		edit_distance_1_words = []
 		edit_distance_2_words = []
 		dictionary_word_found = False
+
 		if not (word.lower() in freq_dictionary): #if the word isn't in dictionary or is a proper noun
 			for dictionary_word,frequency in freq_dictionary:
 				if len(dictionary_word) == len(word):
@@ -232,6 +243,11 @@ def correct_errors(words):
 				new_words.append(word)
 		else:
 			new_words.append(word)
+
+	for i in xrange(len(words)):
+ 	 	if words[i]  != new_words[i]:
+ 			print words[i],new_words[i]
+
 	return new_words
 
 
@@ -264,7 +280,6 @@ def pick_best_word(word_list):
 	else:
 		index_of_best_word = frequencies.index(max(frequencies))
 		return words_with_frequencies[index_of_best_word][0]
-
 
 
 def turn_to_labels(corrected_words):
