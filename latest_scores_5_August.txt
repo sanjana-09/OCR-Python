@@ -1,4 +1,4 @@
-Showing results for clean_data using 39 features from 1 to 40
+Showing results for clean data using 39 features from 1 to 40
 classifier score for test 1 before error correction
 99.6413199426
 classifier score for test 1 after error correction
@@ -7,41 +7,44 @@ classifier score for test 2 before error correction
 99.9362244898
 classifier score for test 2 after error correction
 99.6173469388
+-------------------------------------------------------------------------------------
 Showing results for noisy data 1 using 39 features from 1 to 40
 classifier score for test 1.1 before error correction
 99.4978479197
-classifier score for test 1.2 before error correction
-99.5695839311
-classifier score for test 1.3 before error correction
-96.5566714491
-classifier score for test 1.4 before error correction
-77.1879483501
 classifier score for test 1.1 after error correction
+99.5695839311
+classifier score for test 1.2 before error correction
 99.5695839311
 classifier score for test 1.2 after error correction
 99.7130559541
+classifier score for test 1.3 before error correction
+96.5566714491
 classifier score for test 1.3 after error correction
 99.3543758967
+classifier score for test 1.4 before error correction
+77.1879483501
 classifier score for test 1.4 after error correction
 88.0918220947
+-------------------------------------------------------------------------------------
 Showing results for noisy data 2 using 39 features from 1 to 40
 classifier score for test 2.1 before error correction
 99.8724489796
-classifier score for test 2.2 before error correction
-99.8086734694
-classifier score for test 2.3 before error correction
-95.5994897959
-classifier score for test 2.4 before error correction
-77.9974489796
 classifier score for test 2.1 after error correction
 99.6173469388
+classifier score for test 2.2 before error correction
+99.8086734694
 classifier score for test 2.2 after error correction
 99.6173469388
+classifier score for test 2.3 before error correction
+95.5994897959
 classifier score for test 2.3 after error correction
 99.2984693878
+classifier score for test 2.4 before error correction
+77.9974489796
 classifier score for test 2.4 after error correction
 89.6045918367
-Showing results for clean_data using 10 features from 1 to 11
+-------------------------------------------------------------------------------------
+Showing results for clean data using 10 features from 1 to 11
 classifier score for test 1 before error correction
 99.0674318508
 classifier score for test 1 after error correction
@@ -50,37 +53,40 @@ classifier score for test 2 before error correction
 99.8724489796
 classifier score for test 2 after error correction
 99.6173469388
+-------------------------------------------------------------------------------------
 Showing results for noisy data 1 using 10 features from 1 to 11
 classifier score for test 1.1 before error correction
 99.0674318508
-classifier score for test 1.2 before error correction
-97.1305595409
-classifier score for test 1.3 before error correction
-80.774748924
-classifier score for test 1.4 before error correction
-51.9368723099
 classifier score for test 1.1 after error correction
 99.5695839311
+classifier score for test 1.2 before error correction
+97.1305595409
 classifier score for test 1.2 after error correction
 98.9239598278
+classifier score for test 1.3 before error correction
+80.774748924
 classifier score for test 1.3 after error correction
 89.3113342898
+classifier score for test 1.4 before error correction
+51.9368723099
 classifier score for test 1.4 after error correction
 63.055954089
+-------------------------------------------------------------------------------------
 Showing results for noisy data 2 using 10 features from 1 to 11
 classifier score for test 2.1 before error correction
 99.8724489796
-classifier score for test 2.2 before error correction
-97.6403061224
-classifier score for test 2.3 before error correction
-80.4209183673
-classifier score for test 2.4 before error correction
-48.9795918367
 classifier score for test 2.1 after error correction
 99.6173469388
+classifier score for test 2.2 before error correction
+97.6403061224
 classifier score for test 2.2 after error correction
 99.1709183673
+classifier score for test 2.3 before error correction
+80.4209183673
 classifier score for test 2.3 after error correction
 89.8596938776
+classifier score for test 2.4 before error correction
+48.9795918367
 classifier score for test 2.4 after error correction
 59.5663265306
+-------------------------------------------------------------------------------------
